@@ -12,22 +12,32 @@ let food = {
     y: Math.floor(Math.random() * 15 + 1) * box
 }
 
+
 function criarBG() {
     context.fillStyle = "lightgreen";
     context.fillRect(0, 0, 16 * box, 16 * box);
 }
 
 function criarCobrinha() {
-    for(i=0; i < snake.length; i++) {
+    for(i = 0; i < snake.length; i++) {
         context.fillStyle = "red";
         context.fillRect(snake[i].x, snake[i].y, box, box);
     }
 }
 
 function drawFood() {
-    context.fillStyle = "pink";
+    context.fillStyle = "yellow";
     context.fillRect(food.x, food.y, box, box)
 }
+
+// Pontuação do jogo
+function pontos() {
+    if(snake.length > 1){
+        var pontuacao = snake.length;
+        document.getElementById('ponto').innerHTML = pontuacao - 1;
+    }
+}
+
 
 document.addEventListener('keydown', update);
 
@@ -50,13 +60,14 @@ function iniciarJogo() {
     for(i = 1; i < snake.length; i++) {
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
             clearInterval(jogo);
-            alert('Game Over :(');
+            document.getElementById('mensagem').innerHTML = "Você perdeu";
         }
     }
 
     criarBG();
     criarCobrinha();
     drawFood();
+    pontos()
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -72,6 +83,7 @@ function iniciarJogo() {
     else { 
         food.x = Math.floor(Math.random() * 15 + 1 ) * box;
         food.y = Math.floor(Math.random() * 15 + 1) * box;
+        
     }
 
 
@@ -83,7 +95,8 @@ function iniciarJogo() {
     snake.unshift(newHead)
 }
 
-let jogo = setInterval(iniciarJogo, 80);
+let jogo = setInterval(iniciarJogo, 100);
+console.log(snake.length);
 
 
 

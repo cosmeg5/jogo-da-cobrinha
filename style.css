@@ -1,0 +1,18 @@
+body {
+    margin: 4%;
+    background-color: #ddd;
+}
+.container {
+    display: flex;
+    margin: center;
+}
+.texto {
+    float: left;
+    margin-right: 100px;
+}
+.jogo {
+   float: left;
+}
+.descricao {
+    margin-left: 50px;
+}

@@ -8,6 +8,22 @@
     <script defer src="script.js"></script>
 </head>
 <body>
-    <canvas id="snake" width="512" height="512"></canvas>
+    <div class="container">
+        <div class="texto">
+            <h1>Pontuação</h1>
+            <h2 id="ponto"> 
+                0
+            </h2>
+            <h1 id="mensagem"></h1>
+            <input type="button" value="Atualizar" onClick="history.go(0)">
+        </div>
+        <div class="jogo">
+            <canvas id="snake" width="512" height="512"></canvas>
+        </div>
+        <div class="descricao">
+            <p>Jogo feito com o objetivo de colocar em prática meus conhecimentos inicias em JavaScript. Tive como base o curso da Digital Inovvetion One, com algumas alterações com meus estudos coloquei mensagem de fim de jogo e pontuação.</p>
+        </div>
+
+    </div>
 </body>
 </html>
