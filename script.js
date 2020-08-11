@@ -33,7 +33,7 @@ function drawFood() {
 // Pontuação do jogo
 function pontos() {
     if(snake.length > 1){
-        var pontuacao = snake.length;
+        let pontuacao = snake.length;
         document.getElementById('ponto').innerHTML = pontuacao - 1;
     }
 }
@@ -57,7 +57,7 @@ function iniciarJogo() {
     if(snake[0].y < 0 && direction == "up") snake[0].y = 16 * box;
 
     // Colisão da cobrinha nela mesmo.
-    for(i = 1; i < snake.length; i++) {
+   for(i = 1; i < snake.length; i++) {
         if(snake[0].x == snake[i].x && snake[0].y == snake[i].y) {
             clearInterval(jogo);
             document.getElementById('mensagem').innerHTML = "Você perdeu";
@@ -67,7 +67,7 @@ function iniciarJogo() {
     criarBG();
     criarCobrinha();
     drawFood();
-    pontos()
+    pontos();
 
     let snakeX = snake[0].x;
     let snakeY = snake[0].y;
@@ -86,7 +86,6 @@ function iniciarJogo() {
         
     }
 
-
     let newHead = {
         x: snakeX,
         y: snakeY
@@ -96,7 +95,7 @@ function iniciarJogo() {
 }
 
 let jogo = setInterval(iniciarJogo, 100);
-console.log(snake.length);
+
 
 
 
